@@ -1,0 +1,11 @@
+version: '3'
+services:
+  services-api-database:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: 'postgres'
+    container_name: services-api-database
+    ports:
+      - '5432:5432'
+    volumes:
+      - .docker/dbdata:/var/lib/postgresql/data
