@@ -2,7 +2,7 @@ import { Prisma } from '@prisma/client';
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/modules/prisma';
 
-// metodos de operação no banco de dados que serão disponibilizados pelo Repository
+// metodos de operações no 'banco de dados' que serão disponibilizados pelo Repository
 @Injectable()
 export class ServiceRepository {
   constructor(private readonly prismaService: PrismaService) {}
