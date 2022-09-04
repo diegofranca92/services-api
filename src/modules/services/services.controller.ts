@@ -1,4 +1,10 @@
-import { BadRequestException, Body, Controller, Post } from '@nestjs/common';
+import {
+  BadRequestException,
+  Body,
+  Controller,
+  Post,
+  Get,
+} from '@nestjs/common';
 import { yupCreateServiceInput } from '@yup/services';
 import { ServiceCreateInput } from './dto/service';
 import { ServiceOfService } from './services.service';
@@ -16,5 +22,9 @@ export class ServiceController {
     if (!isValidInput) throw new BadRequestException('Seu input está invalido');
 
     return this.serviceOfService.createService(input);
+  }
+  @Get('/services')
+  async getServices() {
+    return this.serviceOfService.getServices();
   }
 }
