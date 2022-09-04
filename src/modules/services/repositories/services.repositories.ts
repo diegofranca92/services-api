@@ -1,6 +1,6 @@
 import { Prisma } from '@prisma/client';
 import { Injectable } from '@nestjs/common';
-import { PrismaService } from 'src/modules/prisma';
+import { PrismaService } from '@modules/prisma';
 
 // metodos de operações no 'banco de dados' que serão disponibilizados pelo Repository
 @Injectable()

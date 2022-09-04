@@ -1,5 +1,5 @@
 import { BadRequestException, Body, Controller, Post } from '@nestjs/common';
-import { yupCreateServiceInput } from 'src/yup/services';
+import { yupCreateServiceInput } from '@yup/services';
 import { ServiceCreateInput } from './dto/service';
 import { ServiceOfService } from './services.service';
 
