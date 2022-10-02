@@ -10,8 +10,43 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Category {
+  id       String    @id @default(uuid())
+  name     String
+  slug     String
+  services Service[]
+}
+
+model Contact {
+  id       String     @id @default(uuid())
+  email    String
+  tel      String
+  Provider Provider[]
+}
+
+model Localization {
+  id         String     @id @default(uuid())
+  long       String
+  lat        String
+  providerId String?
+  Provider   Provider[]
+}
+
+model Provider {
+  id             String       @id @default(uuid())
+  name           String
+  description    String
+  contact        Contact      @relation(fields: [contactId], references: [id])
+  services       Service[]
+  localization   Localization @relation(fields: [localizationId], references: [id])
+  contactId      String
+  localizationId String
+}
+
 model Service {
-  id  String @id @default(uuid())
-  name String @unique
-  
+  id          String     @id @default(uuid())
+  name        String     @unique
+  description String
+  provider    Provider[]
+  categories  Category[]
 }
